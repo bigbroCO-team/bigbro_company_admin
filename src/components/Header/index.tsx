@@ -1,73 +1,37 @@
 'use client';
 
-import { HamburgerIcon, LeftArrowIcon, PeopleIcon } from '@/assets';
-
-import { useState } from 'react';
-
 import * as S from './style';
 
-interface HeaderProps {
-  text: string;
-  backUrl?: string;
-}
-
-const BRAND_LIST = [
-  { name: 'CBWAS', url: '/CBWAS' },
-  { name: 'S.C.B', url: '/S.C.B' },
-  { name: 'BIGBRO', url: '/BIGBRO' },
-  { name: 'GONGNEWGI', url: '/GONGNEWGI' },
-  { name: 'SCULFEE', url: '/SCULFEE' },
-] as const;
-
-const NAVIGATION_LIST = [
-  // { name: '장바구니', url: '/cart', icon: <CartIcon /> },
-  { name: '마이페이지', url: '/my', icon: <PeopleIcon /> },
-];
-
-const Header = ({ text, backUrl }: HeaderProps) => {
-  const [isMenu, setIsMenu] = useState<boolean>(false);
+const PCHeader = () => {
+  // const { data } = useGetVerify();
 
   return (
-    <>
-      <S.Container>
-        <S.LeftBox>
-          {backUrl && (
-            <S.BackButton href={backUrl}>
-              <LeftArrowIcon />
-            </S.BackButton>
-          )}
-          <S.Text>{text}</S.Text>
-        </S.LeftBox>
-        <S.RightBox>
-          <S.HamburgerMenuButton onClick={() => setIsMenu(true)}>
-            <HamburgerIcon />
-          </S.HamburgerMenuButton>
-        </S.RightBox>
-      </S.Container>
-
-      {isMenu && (
-        <S.Background onClick={() => setIsMenu(false)}>
-          <S.MenuContainer onClick={(e) => e.stopPropagation()}>
-            <S.TopBox>
-              {BRAND_LIST.map(({ name, url }) => (
-                <S.BrandButton key={name} href={url}>
-                  {name}
-                </S.BrandButton>
-              ))}
-            </S.TopBox>
-            <S.Br />
-            <S.BottomBox>
-              {NAVIGATION_LIST.map(({ name, url, icon }) => (
-                <S.NavigationButton key={name} href={url}>
-                  {icon} {name}
-                </S.NavigationButton>
-              ))}
-            </S.BottomBox>
-          </S.MenuContainer>
-        </S.Background>
-      )}
-    </>
+    <S.Container>
+      <S.BIGBROCOMPANY href='/' scroll={false}>
+        BIGBRO COMPANY
+      </S.BIGBROCOMPANY>
+      <S.NavContainer>
+        <S.AdminNav href='/' scroll={false}>
+          상품 관리
+        </S.AdminNav>
+        <S.AdminNav href='/' scroll={false}>
+          주문 내역
+        </S.AdminNav>
+      </S.NavContainer>
+      <S.SideButtonBox>
+        {/* {data?.isValidToken ? (
+          <> */}
+        <S.MyPageButton href='/mypage'>my page</S.MyPageButton>
+        <S.LogoutButton href='/logout'>Logout</S.LogoutButton>
+        {/* </>
+        ) : (
+          <S.LoginButton href='/login' scroll={false}>
+            Login
+          </S.LoginButton>
+        )} */}
+      </S.SideButtonBox>
+    </S.Container>
   );
 };
 
-export default Header;
+export default PCHeader;

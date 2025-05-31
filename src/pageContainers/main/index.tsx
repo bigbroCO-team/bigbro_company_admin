@@ -1,57 +1,93 @@
 'use client';
 
-import Image from 'next/image';
-
-import { Header } from '@/components';
+import { Chart, Header } from '@/components';
 
 import * as S from './style';
 
-const BACKGROUND_SRC = '/main/background.png';
-const LOGO_SRC = '/main/logo.png';
-const SECTION2_SRC = '/main/section2.png';
-const SECTION3_SRC = '/main/section3.png';
+const getLast7Days = () => {
+  const dates = [];
+  const today = new Date();
 
-const NAV_LIST = [
-  { name: 'CBWAS', url: '/CBWAS', src: '/main/CBWAS.png' },
-  { name: 'S.C.B', url: '/S.C.B', src: '/main/S.C.B.png' },
-  { name: 'BIGBRO', url: '/BIGBRO', src: '/main/BIGBRO.png' },
-  { name: 'GONGNEWGI', url: '/GONGNEWGI', src: '/main/GONGNEWGI.png' },
-  { name: 'SCULFEE', url: '/SCULFEE', src: '/main/SCULFEE.png' },
-];
+  for (let i = 6; i >= 0; i--) {
+    const date = new Date(today);
+    date.setDate(today.getDate() - i);
+    dates.push(date.getDate());
+  }
 
-const MainPage = () => {
+  return dates;
+};
+
+const SubscriberBox = ({
+  title,
+  number,
+}: {
+  title: string;
+  number: string;
+}) => (
+  <S.SubscriberBox>
+    <S.SubscriberTitle>{title}</S.SubscriberTitle>
+    <S.SubscriberNumber>{number}</S.SubscriberNumber>
+  </S.SubscriberBox>
+);
+
+const MainLayout = () => {
+  const last7Days = getLast7Days();
+
+  const userStats = [
+    { title: '오늘 가입자 수', number: '100,000' },
+    { title: '어제 가입자 수', number: '100,000' },
+    { title: '누적 가입자 수', number: '1,000,000' },
+  ];
+
+  const amountStats = [
+    { title: '오늘 판매액', number: '100,000' },
+    { title: '어제 판매액', number: '100,000' },
+    { title: '누적 판매액', number: '1,000,000' },
+  ];
+
   return (
-    <S.Container>
-      <Header text='BIGBRO' />
-      <S.Section1>
-        <S.BackgroundImageWrapper>
-          <Image src={BACKGROUND_SRC} alt='배경 이미지' fill />
-        </S.BackgroundImageWrapper>
-        <S.LogoImageWrapper>
-          <Image src={LOGO_SRC} alt='로고 이미지' fill />
-        </S.LogoImageWrapper>
-      </S.Section1>
-      <S.Section2>
-        <S.Section2ImageWrapper>
-          <Image src={SECTION2_SRC} alt='section2 이미지' fill />
-        </S.Section2ImageWrapper>
-      </S.Section2>
-      <S.Br></S.Br>
-      <S.Section3>
-        <S.Section3ImageWrapper>
-          <Image src={SECTION3_SRC} alt='section3 이미지' fill />
-        </S.Section3ImageWrapper>
-      </S.Section3>
-      <S.BottomNav>
-        {NAV_LIST.map(({ name, url, src }) => (
-          <S.NavItem key={name} href={url}>
-            <S.ShadowBox>{name}</S.ShadowBox>
-            <Image src={src} alt={`${name} 이미지`} fill />
-          </S.NavItem>
-        ))}
-      </S.BottomNav>
-    </S.Container>
+    <>
+      <Header />
+      <S.Wrapper>
+        <S.Container>
+          <S.GraphBox>
+            {userStats.map((stat, index) => (
+              <SubscriberBox
+                key={index}
+                title={stat.title}
+                number={stat.number}
+              />
+            ))}
+          </S.GraphBox>
+          <S.Graph>
+            <Chart
+              subScriberNumber={['10', '0', '90', '30', '40', '25', '30']}
+              todaySubScriber={['11', '1', '91', '31', '41', '21', '31']}
+              date={last7Days}
+            />
+          </S.Graph>
+        </S.Container>
+        <S.Container>
+          <S.GraphBox>
+            {amountStats.map((stat, index) => (
+              <SubscriberBox
+                key={index}
+                title={stat.title}
+                number={stat.number}
+              />
+            ))}
+          </S.GraphBox>
+          <S.Graph>
+            <Chart
+              subScriberNumber={['10', '0', '90', '30', '40', '25', '30']}
+              todaySubScriber={['11', '1', '91', '31', '41', '21', '31']}
+              date={[10, 11, 12, 13, 14, 15, 16]}
+            />
+          </S.Graph>
+        </S.Container>
+      </S.Wrapper>
+    </>
   );
 };
 
-export default MainPage;
+export default MainLayout;

@@ -1,108 +1,55 @@
 import styled from '@emotion/styled';
-import Link from 'next/link';
+
+export const Wrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: ${({ theme }) => theme.color.dark};
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 5rem;
+`;
 
 export const Container = styled.div`
   display: flex;
+  width: 51.875rem;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  position: relative;
+  gap: 1.5rem;
 `;
 
-export const BackgroundImageWrapper = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 22.5rem;
-
-  img {
-    object-fit: cover;
-  }
-`;
-
-export const LogoImageWrapper = styled.div`
-  position: relative;
-  width: 26.25rem;
-  height: 8.375rem;
-  margin-top: 7.25rem;
-`;
-
-export const Section1 = styled.div`
-  position: relative;
-  min-height: 22.5rem;
-  width: 100%;
+export const GraphBox = styled.div`
   display: flex;
-  justify-content: center;
-`;
-
-export const Section2 = styled.div`
-  margin-top: 3.94rem;
-  display: flex;
-  justify-content: center;
   width: 100%;
+  padding: 2.25rem;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-radius: 0.75rem;
+  background-color: ${({ theme }) => theme.color.gray25};
 `;
 
-export const Section2ImageWrapper = styled.div`
-  width: 35.5rem;
-  height: 54.25rem;
-  position: relative;
-`;
-
-export const Section3 = styled.div`
-  display: flex;
-  justify-content: center;
+export const Graph = styled.div`
   width: 100%;
+  height: 18.5rem;
 `;
 
-export const Section3ImageWrapper = styled.div`
-  width: 35.5rem;
-  height: 23.33106rem;
-  position: relative;
-`;
-
-export const Br = styled.div`
-  background-color: ${({ theme }) => theme.color.white};
-  width: 35.5rem;
-  min-height: 0.0625rem;
-  margin: 6.25rem 1rem;
-`;
-
-export const BottomNav = styled.div`
-  margin-top: 6.25rem;
-  width: 100%;
+export const SubscriberBox = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
 `;
 
-export const NavItem = styled(Link)`
-  width: 7.125rem;
-  height: 20.6875rem;
-  position: relative;
-
-  :hover {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-`;
-
-export const ShadowBox = styled.div`
-  width: 7.125rem;
-  height: 20.6875rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 4;
-
-  font-family: 'IM FELL Great Primer';
-  font-size: 0.75rem;
-  font-style: normal;
+export const SubscriberTitle = styled.p`
+  font-size: 1.125rem;
   font-weight: 400;
-  line-height: normal;
-  color: transparent;
+  line-height: 1.6875rem;
+  color: ${({ theme }) => theme.color.white};
+`;
 
-  :hover {
-    color: ${({ theme }) => theme.color.white};
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+export const SubscriberNumber = styled.p`
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.9375rem;
+  color: ${({ theme }) => theme.color.white};
 `;
