@@ -1,9 +1,12 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
+
 import * as S from './style';
 
 const PCHeader = () => {
   // const { data } = useGetVerify();
+  const pathname = usePathname();
 
   return (
     <S.Container>
@@ -11,10 +14,14 @@ const PCHeader = () => {
         BIGBRO COMPANY
       </S.BIGBROCOMPANY>
       <S.NavContainer>
-        <S.AdminNav href='/' scroll={false}>
+        <S.AdminNav href='/' scroll={false} active={pathname === '/main'}>
           상품 관리
         </S.AdminNav>
-        <S.AdminNav href='/' scroll={false}>
+        <S.AdminNav
+          href='/orders'
+          scroll={false}
+          active={pathname === '/orders'}
+        >
           주문 내역
         </S.AdminNav>
       </S.NavContainer>

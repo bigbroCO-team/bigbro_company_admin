@@ -34,11 +34,12 @@ export const NavContainer = styled.div`
   color: inherit;
 `;
 
-export const AdminNav = styled(Link)`
+export const AdminNav = styled(Link)<{ active?: boolean }>`
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.8125rem;
-  color: ${({ theme }) => theme.color.gray6};
+  color: ${({ theme, active }) =>
+    active ? theme.color.white : theme.color.gray6};
 `;
 
 export const SideButtonBox = styled.div`
