@@ -31,18 +31,21 @@ export const SelectWrapper = styled.div`
   justify-content: center;
   gap: 0.5rem;
   background-color: ${({ theme }) => theme.color.gray25};
+  z-index: 999;
 `;
 
 export const SelectBox = styled.div`
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  z-index: 999;
 `;
 
 export const TextWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  z-index: 999;
 `;
 
 export const GrayBar = styled.div`

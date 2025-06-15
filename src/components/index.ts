@@ -5,3 +5,5 @@ export { default as FilterSelect } from './FilterSelect';
 export { default as Select } from './Select';
 export { default as SearchInput } from './SearchInput';
 export { default as Button } from './Button';
+export { default as OrderElement } from './OrderElement';
+export { default as OrderTitle } from './OrderTitle';
