@@ -11,6 +11,11 @@ export const Button = styled.button<{ isSelected: boolean }>`
   padding: 0.75rem 2rem;
   justify-content: center;
   align-items: center;
+
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.375rem;
+
   border: ${({ isSelected }) =>
     isSelected ? 'transparent' : '0.0625rem solid var(--gray2, #8C8C8C)'};
   background: ${({ isSelected, theme }) =>

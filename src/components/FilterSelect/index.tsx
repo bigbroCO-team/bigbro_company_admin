@@ -4,8 +4,7 @@ import { useState } from 'react';
 
 import * as S from './style';
 
-const options = [
-  '전체',
+export const options = [
   '입금확인전',
   '입금확인',
   '배송준비중',
@@ -17,19 +16,23 @@ const FilterSelect = () => {
   const [selected, setSelected] = useState('전체');
 
   return (
-    <>
-      <S.Wrapper>
-        {options.map((option) => (
-          <S.Button
-            key={option}
-            isSelected={selected === option}
-            onClick={() => setSelected(option)}
-          >
-            {option}
-          </S.Button>
-        ))}
-      </S.Wrapper>
-    </>
+    <S.Wrapper>
+      <S.Button
+        isSelected={selected === '전체'}
+        onClick={() => setSelected('전체')}
+      >
+        전체
+      </S.Button>
+      {options.map((option) => (
+        <S.Button
+          key={option}
+          isSelected={selected === option}
+          onClick={() => setSelected(option)}
+        >
+          {option}
+        </S.Button>
+      ))}
+    </S.Wrapper>
   );
 };
 

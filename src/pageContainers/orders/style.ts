@@ -10,3 +10,16 @@ export const Wrapper = styled.div`
   gap: 1.5rem;
   padding: 0 5rem;
 `;
+
+export const DateSearchWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+`;
+
+export const FilterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+`;
