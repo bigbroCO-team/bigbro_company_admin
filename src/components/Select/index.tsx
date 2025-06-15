@@ -6,12 +6,15 @@ import * as S from './style';
 
 interface SelectProps {
   selectArr: string[];
-  selectedIdx: number;
+  selectedIdx?: number;
+  multiUpdate?: 'delivery' | 'status';
 }
 
-const Select = ({ selectArr, selectedIdx }: SelectProps) => {
+const Select = ({ selectArr, selectedIdx, multiUpdate }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentIdx, setCurrentIdx] = useState(selectedIdx);
+  const [currentIdx, setCurrentIdx] = useState<number>(
+    typeof selectedIdx === 'number' ? selectedIdx : -1
+  );
 
   const handleToggle = () => {
     setIsOpen((prev) => !prev);
@@ -22,9 +25,23 @@ const Select = ({ selectArr, selectedIdx }: SelectProps) => {
     setIsOpen(false);
   };
 
+  const displayText = currentIdx >= 0 ? selectArr[currentIdx] : '선택 안 됨';
+
   return (
-    <S.Wrapper onClick={handleToggle}>
-      <S.Text>{selectArr[currentIdx]}</S.Text>
+    <S.Wrapper isMulti={!!multiUpdate} onClick={handleToggle}>
+      {!!multiUpdate ? (
+        <S.TextWrapper>
+          <S.Text>
+            {multiUpdate === 'delivery'
+              ? '택배사 일괄 변경'
+              : '진행상태 일괄 변경'}
+          </S.Text>
+          <S.GrayBar />
+          <S.GrayText>{displayText}</S.GrayText>
+        </S.TextWrapper>
+      ) : (
+        <S.Text>{displayText}</S.Text>
+      )}
       <DownArrowIcon />
       {isOpen && (
         <S.SelectWrapper>

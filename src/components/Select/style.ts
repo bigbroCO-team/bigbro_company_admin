@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
-  width: 10rem;
+export const Wrapper = styled.div<{ isMulti: boolean }>`
+  width: ${({ isMulti }) => (isMulti ? '20.5rem' : '10rem')};
+  height: 3rem;
   position: relative;
   display: flex;
   padding: 0.75rem 1rem;
@@ -10,7 +11,6 @@ export const Wrapper = styled.div`
   align-content: center;
   border: 0.0625rem solid ${({ theme }) => theme.color.gray4};
   background: ${({ theme }) => theme.color.dark};
-
   cursor: pointer;
 `;
 
@@ -37,4 +37,23 @@ export const SelectBox = styled.div`
   display: flex;
   align-items: center;
   gap: 0.25rem;
+`;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const GrayBar = styled.div`
+  width: 0.0625rem;
+  height: 1.25rem;
+  background-color: ${({ theme }) => theme.color.gray4};
+`;
+
+export const GrayText = styled.p`
+  color: ${({ theme }) => theme.color.gray2};
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
 `;

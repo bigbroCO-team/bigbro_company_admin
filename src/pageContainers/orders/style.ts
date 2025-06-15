@@ -23,3 +23,16 @@ export const FilterWrapper = styled.div`
   align-items: flex-start;
   gap: 1.5rem;
 `;
+
+export const TopFilterWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+export const MultiUpdateWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+`;

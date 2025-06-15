@@ -1,16 +1,10 @@
 'use client';
 
+import { options } from '@/pageContainers/orders';
+
 import { useState } from 'react';
 
 import * as S from './style';
-
-export const options = [
-  '입금확인전',
-  '입금확인',
-  '배송준비중',
-  '배송시작',
-  '환불완료',
-];
 
 const FilterSelect = () => {
   const [selected, setSelected] = useState('전체');
