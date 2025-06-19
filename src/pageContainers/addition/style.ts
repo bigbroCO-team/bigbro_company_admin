@@ -26,7 +26,7 @@ export const InfoWrapper = styled.div`
   overflow-y: auto;
   padding-right: 0.5rem;
 
-  padding-bottom: 40rem;
+  padding-bottom: 42.5rem;
 
   scrollbar-width: none;
 `;

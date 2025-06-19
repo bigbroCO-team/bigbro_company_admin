@@ -53,6 +53,5 @@ export const AdditionText = styled.p`
 export const TopWidth = styled.div`
   display: flex;
   width: 100%;
-  padding: 0 3rem;
   justify-content: space-between;
 `;
