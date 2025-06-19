@@ -3,12 +3,15 @@ import * as S from './style';
 interface ButtonType {
   buttonType: 'normal' | 'delete';
   text: string;
+  disabled?: boolean;
 }
 
-const Button = ({ buttonType, text }: ButtonType) => {
+const Button = ({ buttonType, text, disabled }: ButtonType) => {
   return (
-    <S.Wrapper buttonType={buttonType}>
-      <S.Text buttonType={buttonType}>{text}</S.Text>
+    <S.Wrapper buttonType={buttonType} disabled={disabled}>
+      <S.Text buttonType={buttonType} disabled={disabled}>
+        {text}
+      </S.Text>
     </S.Wrapper>
   );
 };

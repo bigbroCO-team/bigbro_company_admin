@@ -4,3 +4,4 @@ export { default as CheckIcon } from './CheckIcon';
 export { default as SearchIcon } from './SearchIcon';
 export { default as CheckBox } from './CheckBox';
 export { default as RightArrowIcon } from './RightArrowIcon';
+export { default as BackIcon } from './BackIcon';

@@ -14,7 +14,11 @@ const PCHeader = () => {
         BIGBRO COMPANY
       </S.BIGBROCOMPANY>
       <S.NavContainer>
-        <S.AdminNav href='/' scroll={false} active={pathname === '/main'}>
+        <S.AdminNav
+          href='/products'
+          scroll={false}
+          active={pathname === '/products'}
+        >
           상품 관리
         </S.AdminNav>
         <S.AdminNav

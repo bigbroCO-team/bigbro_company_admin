@@ -7,3 +7,8 @@ export { default as SearchInput } from './SearchInput';
 export { default as Button } from './Button';
 export { default as OrderElement } from './OrderElement';
 export { default as OrderTitle } from './OrderTitle';
+export { default as Product } from './Product';
+export { default as CustomInputs } from './CustomInputs';
+export { default as ProductInfoInput } from './ProductInfoInput';
+export { default as InputWrapper } from './InputWrapper';
+export { default as ProductList } from './ProductList';
